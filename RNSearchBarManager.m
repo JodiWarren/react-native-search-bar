@@ -100,6 +100,11 @@ RCT_CUSTOM_VIEW_PROPERTY(textColor, UIColor, RNSearchBar)
 {
     if([RCTConvert UIColor:json]) {
        [[UITextField appearanceWhenContainedIn:[RNSearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[RCTConvert UIColor:json]}];
+       // Make Cancel button same color as text
+       [[UIBarButtonItem appearanceWhenContainedIn:[RNSearchBar class], nil]
+           setTitleTextAttributes:@{NSForegroundColorAttributeName: [RCTConvert UIColor:json]}
+           forState:UIControlStateNormal];
+       // End
     }
 }
 
